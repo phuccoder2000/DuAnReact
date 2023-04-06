@@ -19,13 +19,17 @@ class MyComponent extends React.Component {
     }
     render() {
         return (
-            <div>
-                <AddUser handleAddNewUser={this.handleAddNewUser} />
-                <br /> <br />
-                <DisplayInfor listUser={this.state.listUser}
-                />
-                <hr></hr>
-            </div>
+            <>
+                <div className="a">
+                    <AddUser handleAddNewUser={this.handleAddNewUser} />
+                    <br /> <br />
+                    <DisplayInfor listUser={this.state.listUser}
+                    />
+                    <hr></hr>
+                </div>
+                <div className="b">
+                </div>
+            </>
         )
     }
 }

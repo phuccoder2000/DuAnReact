@@ -1,29 +1,39 @@
 import React from "react";
 
 class DisplayInfor extends React.Component {
+
+    state = {
+        isShowListUser: true
+    }
+    handleShowhide = () => {
+        this.setState({
+            isShowListUser: !this.state.isShowListUser
+        })
+    }
     render() {
         const { listUser } = this.props
-        // console.log(listUser)
+
         return (
             <div>
-                {listUser.map((user, index) =>{
-                    return(
-                        <div key={user.id}>
-                            <div >My name: {user.name}</div>
-                            <div>My age: {user.age}</div>
-                        </div>
+                <div>
+                    <span onClick={() => { this.handleShowhide() }}>
+                        {this.state.isShowListUser === true ? "hide list user:" : "show list user"}</span>
+                </div>
+                {this.state.isShowListUser &&
+                    <div>
+                        {listUser.map((user) => {
+                            return (
+                                <div key={user.id} className={+user.age > 18 ? "green" : "red"}>
+                                    <div> my name: {user.name}</div>
+                                    <div> my age:{user.age}</div>
+                                </div>
+                            )
+                        })}
 
-                    )
-                })}
-                {/* <div>My name: {name}</div>
-                <div>My age: {age}</div>
-                <hr/>
-                <div>My name: {name}</div>
-                <div>My age: {age}</div>
-                <hr/>
-                <div>My name: {name}</div>
-                <div>My age: {age}</div> */}
+                    </div>
+                }
             </div>
+
         )
     }
 }

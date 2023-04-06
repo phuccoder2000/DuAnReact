@@ -1,43 +1,23 @@
-// class component
-// function component
+
 import React from "react";
+import Userinfo from "./Userinfo";
+import DisplayInfor from "./DisplayInfor";
 
 class MyComponent extends React.Component {
     state = {
-        name: "Phuc",
-        address: "phucdeptrai",
-        age: 25
-    }
-
-    // handleClickme = (event) => {
-    //     console.log("clickme")
-
-    //     this.setState({
-    //         name: 'phuc01',
-    //         age: Math.floor(Math.random() * 100) + 1
-
-    //     })
-    // }
-
-    handleOnchane = (event) => {
-        this.setState(
-            {
-                name: event.target.value
-            }
-        )
-    }
-    handleOnsubmit = (event) => {
-        event.preventDefault();
-        console.log(this.state)
+        listUser: [
+            { id: 1, name: 'phucdeptrai', age: 30 },
+            { id: 2, name: 'phucdeptrai2', age: 29 },
+            { id: 3, name: 'phucdeptrai3', age: 28 }
+        ]
     }
     render() {
         return (
             <div>
-                My name is {this.state.name} and i'm  {this.state.age}
-                <form onSubmit={(event) => this.handleOnsubmit(event)} >
-                    <input type="text" onChange={(event) => this.handleOnchane(event)}></input>
-                    <button >summit</button>
-                </form>
+                <Userinfo />
+                <br /> <br />
+                <DisplayInfor listUser={this.state.listUser} />
+                <hr></hr>
             </div>
         )
     }

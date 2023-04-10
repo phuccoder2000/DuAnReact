@@ -2,15 +2,36 @@ import React from "react";
 import "./DisplayInfo.scss"
 import logo from "./../logo.svg"
 class DisplayInfor extends React.Component {
-    state = {
-        isShowListUser: true
+
+    constructor(props) {
+        console.log("call constructor : 1")
+        super(props);
+        this.state = {
+            isShowListUser: true
+        }
     }
     handleShowhide = () => {
         this.setState({
             isShowListUser: !this.state.isShowListUser
         })
     }
+    componentDidMount() {
+        console.log("call me did Mout   ")
+        setTimeout(() => {
+            document.title ="phucdeptrai"
+        }, 3000);
+    }
+    componentDidUpdate(prevProps,prevState){
+
+        console.log("call me componentDidUpdate",this.props,prevProps)
+        if(this.props.listUser !== prevProps.listUser){
+            if(this.props.listUser.length === 5){
+                alert("you got 5 user")
+            }
+        }
+    }
     render() {
+        console.log("call me render:")
         const { listUser } = this.props
         return (
             <div className="display-infor-container">

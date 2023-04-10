@@ -1,4 +1,5 @@
 import React from "react";
+import { v4 as uuidv4 } from 'uuid';
 class AddUser extends React.Component {
     state = {
         name: "Phuc01",
@@ -20,10 +21,13 @@ class AddUser extends React.Component {
             }
         )
     }
+
     handleOnsubmit = (event) => {
         event.preventDefault();
+        const id = uuidv4(); /// thư viện  UUID
         this.props.handleAddNewUser({
-            id: Math.floor((Math.random() * 100) + 1 + '-ramdom'),
+            id:id,
+            // id: Math.floor(Math.random()*100 + 1)+ '-ramdom',
             name: this.state.name,
             age: this.state.age
 

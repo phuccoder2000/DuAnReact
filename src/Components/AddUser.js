@@ -2,6 +2,7 @@ import React from "react";
 import { useState } from "react";
 import { v4 as uuidv4 } from 'uuid';
 const AddUser = (props) => {
+
     // state = {
     //     name: "",
     //     address: "phucdeptrai",
@@ -12,6 +13,7 @@ const AddUser = (props) => {
     const [age, setAge] = useState('')
 
     const handleOnchane = (event) => {
+
         // this.setState(
         //     {
         //         name: event.target.value
@@ -23,8 +25,8 @@ const AddUser = (props) => {
 
         setAge(event.target.value)
     }
-
     const handleOnsubmit = (event) => {
+    
         event.preventDefault();
         const id = uuidv4(); /// thư viện  UUID
         props.handleAddNewUser({

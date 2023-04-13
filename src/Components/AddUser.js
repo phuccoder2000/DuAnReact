@@ -26,14 +26,12 @@ const AddUser = (props) => {
         setAge(event.target.value)
     }
     const handleOnsubmit = (event) => {
-    
         event.preventDefault();
         const id = uuidv4(); /// thư viện  UUID
         props.handleAddNewUser({
             id: id,
             name: name,
             age: age
-
         })
     }
     return (

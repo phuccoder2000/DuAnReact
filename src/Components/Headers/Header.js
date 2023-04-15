@@ -14,8 +14,8 @@ function Header() {
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="me-auto">
             <NavLink to="/" className='nav-link'> Home</NavLink>
-            <NavLink to="/Users" className='nav-link'> Users</NavLink>
-            <NavLink to="/Admins" className='nav-link'> Admins</NavLink>
+            <NavLink to="/users" className='nav-link'> Users</NavLink>
+            <NavLink to="/admins" className='nav-link'> Admins</NavLink>
             {/* <Nav.Link href="/">Home</Nav.Link>
             <Nav.Link href="users">Users</Nav.Link>
             <Nav.Link href="admins">Admin</Nav.Link> */}

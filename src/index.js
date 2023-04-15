@@ -12,6 +12,8 @@ import {
 import User from './Components/User/User';
 import Admin from './Components/Admin/Admin';
 import HomePage from './Components/Home/HomePage';
+import ManageUser from './Components/Admin/Content/ManageUser';
+import DashBoard from './Components/Admin/Content/DashBoard';
 
 
 
@@ -23,13 +25,15 @@ root.render(
       <Routes>
         <Route path='/' element={<App />}>
           <Route index element={<HomePage />} />
-          <Route path='/Users' element={<User />} />
+          <Route path='/users' element={<User />} />
 
         </Route>
-        <Route path='/Admins' element={<Admin />} />
+        <Route path='admins' element={<Admin />}>
+        <Route index element={<DashBoard />} />
+        <Route path='manage-Users'element={<ManageUser />} />
+        </Route>
       </Routes>
     </BrowserRouter>
-
     {/* </React.StrictMode> */}
   </Provider>
 );

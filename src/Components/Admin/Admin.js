@@ -2,7 +2,7 @@ import { useState } from 'react'
 import './Admin.scss'
 import SideBar from "./Sidebar"
 import { FaBars } from 'react-icons/fa'
-import { Outlet, Link } from "react-router-dom";
+import { Outlet } from "react-router-dom";
 
 const Admin = (props) => {
     const [collapsed, setcollapsed] = useState(false)

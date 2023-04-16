@@ -4,8 +4,6 @@ const HomePage = (props) => {
     return (
         <div className="homepage-container">
             <video autoPlay muted loop >
-                {/* <source  src="/static/home-page/hero/video-1920.webm" 
-                type="video/webm" /> */}
                 <source src={VideoHomepage}
                     type="video/mp4" />
             </video>

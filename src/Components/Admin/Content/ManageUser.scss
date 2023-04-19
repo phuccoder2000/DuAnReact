@@ -1,3 +1,23 @@
+.manage-user-container {
+    padding: 10px;
+    .user-content {
+        .btn-add-new {
+           margin: 15px 0;
+     
+        }
+        .table-users-container {}
+
+    }
+
+    .title {
+        font-weight: 600;
+        font-size: 20px;
+    }
+}
+
+
+
+
 .modal-add-user {
     .img-preview {
         height: 150px;
@@ -25,6 +45,7 @@
         background: #eeeeee;
         border: none;
         cursor: pointer;
+
         &:hover {
             background-color: #dcdcdc;
         }

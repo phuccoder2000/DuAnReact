@@ -33,7 +33,7 @@ const Admin = (props) => {
                 theme="light"
             />
             {/* Same as */}
-            <ToastContainer />
+            {/* <ToastContainer /> */}
 
         </div>
     )

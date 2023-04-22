@@ -43,7 +43,6 @@ const SideBar = (props) => {
                         <span>Phuc coder</span>
                     </div>
                 </SidebarHeader>
-
                 <SidebarContent>
                     <Menu iconShape="circle">
                         <MenuItem
@@ -67,7 +66,6 @@ const SideBar = (props) => {
                             <MenuItem> Quản lý bài Quiz</MenuItem>
                             <MenuItem> Quản lý câu hỏi</MenuItem>
                         </SubMenu>
-
                     </Menu>
                 </SidebarContent>
 
@@ -95,5 +93,4 @@ const SideBar = (props) => {
         </>
     )
 }
-
 export default SideBar;

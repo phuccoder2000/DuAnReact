@@ -6,13 +6,8 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-
-
-
 }
-
 @media (min-width: 1500px) {
-
   .container,
   .container-lg,
   .container-md,
@@ -22,9 +17,6 @@ body {
     max-width: 1450px !important;
   }
 }
-
-
-
 .app-container {
   .header-container {
     .btn-login {
@@ -34,7 +26,6 @@ body {
       margin-right: 15px;
       height: 40px;
     }
-
     .btn-signup {
       padding: 0 15px;
       border-radius: 5px;
@@ -45,7 +36,6 @@ body {
         background: black;
       }
     }
-
     .navbar {
       z-index: 10;
       // opacity: 0.6;
@@ -87,7 +77,6 @@ body {
     }
   }
 }
-
 video {
   position: fixed;
   bottom: 0;

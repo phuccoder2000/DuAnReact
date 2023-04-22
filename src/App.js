@@ -1,4 +1,3 @@
-
 import './App.scss';
 import Header from "./Components/Headers/Header.js";
 import { Outlet } from "react-router-dom";
@@ -18,5 +17,4 @@ const App = () => {
     </div>
   );
 }
-
 export default App;

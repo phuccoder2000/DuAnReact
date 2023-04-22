@@ -13,7 +13,6 @@ const ModalCreateUser = (props) => {
         setRole('USER');
         setImage('');
         setPreviewImage('');
-
     }
     const handleShow = () => setShow(true);
 
@@ -23,9 +22,6 @@ const ModalCreateUser = (props) => {
     const [role, setRole] = useState("USER")
     const [previewImage, setPreviewImage] = useState('')
     const [image, setImage] = useState("")
-
-
-
     const hendleUpLoadImage = (event) => {
         if (event.target && event.target.files && event.target.files[0]) {
             setPreviewImage(URL.createObjectURL(event.target.files[0]))
@@ -43,34 +39,18 @@ const ModalCreateUser = (props) => {
     };
     const HandSubmitCreateUser = async () => {
         // validate
-
-        //call API
-        // let data = {
-        //     email: email,
-        //     password: password,
-        //     username: username,
-        //     role: role,
-        //     userImage: image
-        // }
-        // console.log(data)
-
-
         const isValidateEmail = validateEmail(email)
         if (!isValidateEmail) {
             toast.error('Invalid Email')
-
             return;
         }
         if (!password) {
             toast.error('Invalid Password')
+
             return;
         }
-
         //submit data
-
-
         const data = await postCreateNewUser(email, password, username, role, image)
-      
         if (data && data.EC === 0) {
             toast.success(data.EM)
             handleClose()
@@ -79,13 +59,8 @@ const ModalCreateUser = (props) => {
             toast.error(data.EM)
         }
     }
-
     return (
         <>
-            {/* <Button variant="primary" onClick={handleShow}>
-                Launch demo modal
-            </Button> */}
-
             <Modal
                 show={show}
                 onHide={handleClose}
@@ -127,8 +102,8 @@ const ModalCreateUser = (props) => {
                             <select className="form-select" onChange={(event) => setRole(event.target.value)
                             }
                                 value={role}>
-                                <option selected value="USER">USER</option>
-                                <option value="ADMIN">ADMIN</option>
+                                <option selected defaultValue="USER">USER</option>
+                                <option defaultValue="ADMIN">ADMIN</option>
                             </select>
 
                         </div>
@@ -149,11 +124,8 @@ const ModalCreateUser = (props) => {
                                     <img src={previewImage}></img>
                                     : <span>Preview Imgae</span>
                             }
-
-
                         </div>
                     </form>
-
                 </Modal.Body>
                 <Modal.Footer>
                     <Button variant="secondary" onClick={handleClose}>
@@ -162,7 +134,6 @@ const ModalCreateUser = (props) => {
                     <Button variant="primary" onClick={() => HandSubmitCreateUser()}>
                         Save Changes
                     </Button>
-
                 </Modal.Footer>
             </Modal>
         </>

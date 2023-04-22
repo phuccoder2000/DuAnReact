@@ -1,9 +1,7 @@
 import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
-// import NavDropdown from 'react-bootstrap/NavDropdown';
 import { NavLink } from "react-router-dom";
-
 function Header() {
   return (
     <Navbar bg="light" expand="lg">
@@ -19,7 +17,6 @@ function Header() {
             {/* <Nav.Link href="/">Home</Nav.Link>
             <Nav.Link href="users">Users</Nav.Link>
             <Nav.Link href="admins">Admin</Nav.Link> */}
-
           </Nav>
           <Nav>
             <button className='btn-login'>Login</button>
@@ -35,5 +32,4 @@ function Header() {
     </Navbar>
   );
 }
-
 export default Header;

@@ -14,6 +14,7 @@ const ModalCreateUser = (props) => {
         setRole('USER');
         setImage('');
         setPreviewImage('');
+        props.resetUpdateData();
     }
     const handleShow = () => setShow(true);
 

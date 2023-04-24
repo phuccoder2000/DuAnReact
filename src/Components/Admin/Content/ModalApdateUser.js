@@ -10,7 +10,6 @@ const ModalUpdateUser = (props) => {
     const handleClose = () => {
         setShow(false);
         setEmail('');
-        setpassword('');
         setUsername('')
         setRole('USER');
         setImage('');
@@ -75,7 +74,6 @@ const ModalUpdateUser = (props) => {
             toast.error(data.EM)
         }
     }
-
     return (
         <>
             <Modal
@@ -124,7 +122,6 @@ const ModalUpdateUser = (props) => {
                                 <option selected defaultValue="USER">USER</option>
                                 <option defaultValue="ADMIN">ADMIN</option>
                             </select>
-
                         </div>
                         <div className='col-md-12'>
                             <label className="form-label lable-upload" htmlFor='lableUpload'>

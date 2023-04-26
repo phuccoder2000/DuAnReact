@@ -1,6 +1,16 @@
+// import { useEffect, useState } from "react";
+import ReactPaginate from 'react-paginate';
 
-const TableUser = (props) => {
-    const { listUser } = props;
+
+
+const TableUserPageinate = (props) => {
+    const { listUser ,pageCount } = props;
+    const handlePageClick = (event) => {
+        props.fetchListWitPagehUsers(event.selected +1)
+        console.log(`User requested page number ${+event.selected}`);
+
+    };
+
 
     return (
         <>
@@ -21,6 +31,7 @@ const TableUser = (props) => {
                             return (
                                 <tr key={`table-users-${index}`}>
                                     <th >{item.id}</th>
+                                
                                     <td>{item.username}</td>
                                     <td>{item.email}</td>
                                     <td>{item.role}</td>
@@ -45,7 +56,29 @@ const TableUser = (props) => {
                         </tr>}
                 </tbody>
             </table>
+            <div className="d-flex justify-content-center">
+            <ReactPaginate
+                nextLabel="Next >"
+                onPageChange={handlePageClick}
+                pageRangeDisplayed={3}
+                marginPagesDisplayed={2}
+                pageCount={pageCount}
+                previousLabel="< Previous"
+                pageClassName="page-item"
+                pageLinkClassName="page-link"
+                previousClassName="page-item"
+                previousLinkClassName="page-link"
+                nextClassName="page-item"
+                nextLinkClassName="page-link"
+                breakLabel="..."
+                breakClassName="page-item"
+                breakLinkClassName="page-link"
+                containerClassName="pagination"
+                activeClassName="active"
+                renderOnZeroPageCount={null}
+            />
+            </div>
         </>
     )
 }
-export default TableUser
+export default TableUserPageinate

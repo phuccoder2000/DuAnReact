@@ -15,7 +15,7 @@ const ModalCreateUser = (props) => {
         setImage('');
         setPreviewImage('');
     }
-    const handleShow = () => setShow(true);
+    // const handleShow = () => setShow(true);
 
     const [email, setEmail] = useState("")
     const [password, setpassword] = useState("")
@@ -106,7 +106,7 @@ const ModalCreateUser = (props) => {
                             <select className="form-select" onChange={(event) => setRole(event.target.value)
                             }
                                 value={role}>
-                                <option selected defaultValue="USER">USER</option>
+                                <option  defaultValue="USER">USER</option>
                                 <option defaultValue="ADMIN">ADMIN</option>
                             </select>
 
@@ -125,7 +125,7 @@ const ModalCreateUser = (props) => {
                         <div className='col-md-12 img-preview'>
                             {
                                 previewImage ?
-                                    <img src={previewImage}></img>
+                                    <img alt='previewImage' src={previewImage}></img>
                                     : <span>Preview Imgae</span>
                             }
                         </div>

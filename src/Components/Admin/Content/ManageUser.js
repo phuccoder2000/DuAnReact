@@ -3,7 +3,7 @@ import './ManageUser.scss'
 import { FcPlus } from 'react-icons/fc'
 import TableUser from "./TableUser"
 import { useEffect, useState } from "react"
-import { getAllUsers,getUserWithPaginat } from "../../services/apiService"
+import { getAllUsers,getUserWithPaginat } from "../../../services/apiService"
 import ModalUpdateUser from "./ModalApdateUser"
 import ModalCreateUser from "./ModalCreateUser"
 import ModalViewUser from './ModalViewUser'

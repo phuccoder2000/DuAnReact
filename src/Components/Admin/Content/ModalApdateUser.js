@@ -3,7 +3,7 @@ import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
 import { FcPlus } from 'react-icons/fc'
 import { toast } from 'react-toastify';
-import { putApdateUser } from '../../services/apiService';
+import { putApdateUser } from '../../../services/apiService';
 import _ from 'lodash';
 const ModalUpdateUser = (props) => {
     const { show, setShow, dataUpdate, resetUpdateData } = props

@@ -3,7 +3,7 @@ import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
 import { FcPlus } from 'react-icons/fc'
 import { toast } from 'react-toastify';
-import { postCreateNewUser } from '../../services/apiService';
+import { postCreateNewUser } from '../../../services/apiService';
 const ModalCreateUser = (props) => {
     const { show, setShow } = props;
     const handleClose = () => {

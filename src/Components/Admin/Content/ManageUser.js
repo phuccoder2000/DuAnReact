@@ -11,7 +11,7 @@ import ModalDeleteUser from './ModalDeleteUser'
 import TableUserPageinate from './TableUserPageinate'
 
 const ManageUser = (props) => {
-    const LIMIT_USER = 8;
+    const LIMIT_USER = 3;
     const [showModalCreateUser, setshowModalCreateUser] = useState(false)
     const [showModalUpdateUser, setshowModalUpdateUser] = useState(false);
     const [showModalViewUser, setshowModalViewUser] = useState(false)
@@ -19,6 +19,7 @@ const ManageUser = (props) => {
     const[pageCount,setpageCount] =useState(0)
     const [dataUpdate, setDataUpdate] = useState({})
     const [listUser, setListUser] = useState([])
+    const [currentpage,setcurrentpage] = useState(1)
 
     const [dataDelete, setDataDelete] = useState({})
 
@@ -92,30 +93,43 @@ const ManageUser = (props) => {
                         handleClickBtnView={handleClickBtnView}
                         handleClickBtnDelete={handleClickBtnDelete} 
                         fetchListWitPagehUsers={fetchListWitPagehUsers}
-                        pageCount={pageCount}/>
+                        pageCount={pageCount}
+                        currentpage={currentpage}
+                        setcurrentpage={setcurrentpage}/>
+                        
                       
 
                 </div>
                 <ModalCreateUser show={showModalCreateUser}
                     setShow={setshowModalCreateUser}
                     fetchListUsers={fetchListUsers}
+                    fetchListWitPagehUsers ={fetchListWitPagehUsers}
+                    currentpage={currentpage}
+                    setcurrentpage={setcurrentpage}
                 />
                 <ModalUpdateUser show={showModalUpdateUser}
                     setShow={setshowModalUpdateUser}
                     dataUpdate={dataUpdate}
                     fetchListUsers={fetchListUsers}
                     resetUpdateData={resetUpdateData}
+                    fetchListWitPagehUsers={fetchListWitPagehUsers}
+                    currentpage={currentpage}
+                    setcurrentpage={setcurrentpage}
                 />
                 <ModalViewUser show={showModalViewUser}
                     setShow={setshowModalViewUser}
                     dataUpdate={dataUpdate}
                     resetUpdateData={resetUpdateData}
+
                 />
                 <ModalDeleteUser
                     show={showModalDeleteUser}
                     setShow={setshowModalDeleteUser}
                     dataDelete={dataDelete}
                     fetchListUsers={fetchListUsers}
+                    fetchListWitPagehUsers={fetchListWitPagehUsers}
+                    currentpage={currentpage}
+                    setcurrentpage={setcurrentpage}
                 />
 
             </div>

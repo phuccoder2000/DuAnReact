@@ -3,11 +3,12 @@ import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
 import { FaUserTie } from 'react-icons/fa'
 import _, { } from 'lodash';
-import { ListGroup } from 'react-bootstrap';
+// import { ListGroup } from 'react-bootstrap';
 
 const ModalViewUser = (props) => {
     const { show, setShow, dataUpdate, resetUpdateData } = props
     const handleClose = () => {
+        
         setID('')
         setShow(false);
         setEmail('');
@@ -34,6 +35,8 @@ const ModalViewUser = (props) => {
             setImage('');
             if (dataUpdate.image) {
                 setPreviewImage(`data:image/jpeg;base64, ${dataUpdate.image}`);
+                // setPreviewImage(`data:image/jpeg;base64,) ${dataUpdate.username}`)
+                // setUsername()
 
             }
         }

@@ -1,8 +1,8 @@
-import React, {  useState } from 'react';
+import React, { useState } from 'react';
 import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
 import { FcPlus } from 'react-icons/fc'
-import {  toast } from 'react-toastify';
+import { toast } from 'react-toastify';
 import { postCreateNewUser } from '../../services/apiService';
 const ModalCreateUser = (props) => {
     const { show, setShow } = props;
@@ -57,12 +57,15 @@ const ModalCreateUser = (props) => {
         if (data && data.EC === 0) {
             toast.success(data.EM)
             handleClose()
-            await props.fetchListUsers();
+            // await props.fetchListUsers();
+            // await props.fetchListUsers();
+            props.setcurrentpage(0)
+            await props.fetchListWitPagehUsers(1)
         }
         if (data && data.EC !== 0) {
             toast.error(data.EM)
         }
-    }   
+    }
     return (
         <>
             <Modal
@@ -106,7 +109,7 @@ const ModalCreateUser = (props) => {
                             <select className="form-select" onChange={(event) => setRole(event.target.value)
                             }
                                 value={role}>
-                                <option  defaultValue="USER">USER</option>
+                                <option defaultValue="USER">USER</option>
                                 <option defaultValue="ADMIN">ADMIN</option>
                             </select>
 

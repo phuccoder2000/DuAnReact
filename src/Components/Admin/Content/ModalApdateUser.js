@@ -2,11 +2,11 @@ import React, { useState, useEffect } from 'react';
 import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
 import { FcPlus } from 'react-icons/fc'
-import {  toast } from 'react-toastify';
+import { toast } from 'react-toastify';
 import { putApdateUser } from '../../services/apiService';
 import _ from 'lodash';
 const ModalUpdateUser = (props) => {
-    const { show, setShow, dataUpdate, resetUpdateData} = props
+    const { show, setShow, dataUpdate, resetUpdateData } = props
     const handleClose = () => {
         setShow(false);
         setEmail('');
@@ -62,13 +62,16 @@ const ModalUpdateUser = (props) => {
             toast.error('Invalid Email')
             return;
         }
-       
+
         //submit data
-        const data = await putApdateUser( dataUpdate.id,username, role, image)
+        const data = await putApdateUser(dataUpdate.id, username, role, image)
         if (data && data.EC === 0) {
             toast.success(data.EM)
             handleClose()
-            await props.fetchListUsers();
+            // await props.fetchListUsers();
+            // await props.fetchListUsers();
+            // props.setcurrentpage(1)
+            await props.fetchListWitPagehUsers(props.currentpage)
         }
         if (data && data.EC !== 0) {
             toast.error(data.EM)
@@ -91,7 +94,7 @@ const ModalUpdateUser = (props) => {
                         <div className="col-md-6">
                             <label className="form-label">Email</label>
                             <input type="email"
-                               disabled
+                                disabled
                                 className="form-control"
                                 value={email}
                                 onChange={(event) => setEmail(event.target.value)}
@@ -100,7 +103,7 @@ const ModalUpdateUser = (props) => {
                         <div className="col-md-6">
                             <label className="form-label">Password</label>
                             <input type="password"
-                               disabled
+                                disabled
                                 className="form-control"
                                 value={password}
                                 onChange={(event) => setpassword(event.target.value)}

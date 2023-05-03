@@ -3,16 +3,40 @@ import './Login.scss'
 import { useNavigate } from 'react-router-dom'
 import { postLogin } from '../../services/apiService'
 import { toast } from 'react-toastify';
+
+
+
 const Login = () => {
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
     const navigate = useNavigate()
+
+    const handleRegister = () => {
+        navigate("/register")
+    }
+
     const handleLogin = async () => {
         // validate
+        const validateEmail = (email) => {
+            return String(email)
+                .toLowerCase()
+                .match(
+                    /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|.(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
+                );
+        }
+        const isValidateEmail = validateEmail(email)
+        if (!isValidateEmail) {
+            toast.error('Invalid Email')
+            return;
+        }
+        if (!password) {
+            toast.error('Invalid Password')
 
+            return;
+        }
         //summitAPI
         let data = await postLogin(email, password)
-        console.log(data, data.EC !== 0, data.Ec)
+
         if (data && data.EC === 0) {
             toast.success(data.EM)
             navigate('/')
@@ -22,15 +46,17 @@ const Login = () => {
 
             toast.error(data.EM)
         }
+
     }
+
     return (
         <div className="login-container">
             <div className="header">
-                <span>Don't have an account yet?</span>
-                <button>Sign Up</button>
+                <span className='title-containerHD'>Don't have an account yet?</span>
+                <button onClick={() => handleRegister()}>Sign Up</button>
             </div>
             <div className="title mx-auto col-4" >
-                phucdeptrai
+                Phuccoder2000
             </div>
             <div className="welcome mx-auto col-4">
                 Hello, who’s this?

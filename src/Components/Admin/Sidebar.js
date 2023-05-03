@@ -40,7 +40,7 @@ const SideBar = (props) => {
                         }}
                     >
                         <DiReact size={'3em'} color='00bfff' />
-                        <span>Phuc coder</span>
+                        <span>Phuccoder</span>
                     </div>
                 </SidebarHeader>
                 <SidebarContent>
@@ -61,7 +61,7 @@ const SideBar = (props) => {
                             title={"Features"}
                         >
                             <MenuItem> Quản lý user
-                            <Link to="/admins/manage-users"/>
+                                <Link to="/admins/manage-users" />
                             </MenuItem>
                             <MenuItem> Quản lý bài Quiz</MenuItem>
                             <MenuItem> Quản lý câu hỏi</MenuItem>

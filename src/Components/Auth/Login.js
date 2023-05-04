@@ -5,6 +5,7 @@ import { postLogin } from '../../services/apiService'
 import { toast } from 'react-toastify';
 import { useDispatch } from 'react-redux';
 import { doLogin } from '../../redux/action/UserAction';
+import { ImSpinner3 } from 'react-icons/im'
 
 
 const Login = () => {
@@ -12,6 +13,7 @@ const Login = () => {
     const [password, setPassword] = useState('')
     const navigate = useNavigate()
     const dispatch = useDispatch()
+    const [isLoading, setIsLoading] = useState(false)
 
     const handleRegister = () => {
         navigate("/register")
@@ -36,18 +38,21 @@ const Login = () => {
 
             return;
         }
+        setIsLoading(true)
         //summitAPI
         let data = await postLogin(email, password)
 
         if (data && data.EC === 0) {
             dispatch(doLogin(data))
             toast.success(data.EM)
+            setIsLoading(false)
             navigate('/')
 
         }
         if (data && data.EC !== 0) {
 
             toast.error(data.EM)
+            setIsLoading(false)
         }
 
     }
@@ -85,8 +90,12 @@ const Login = () => {
                 <div>
                     <button
                         className='btn-summit'
-                        onClick={() => handleLogin()}>
-                        Login
+                        onClick={() => handleLogin()}
+                        disabled={isLoading}
+                    >
+                        {isLoading === true &&
+                            <ImSpinner3 className="loaderIcon" />}
+                        <span>Login</span>
                     </button>
                 </div>
                 <div className=' text-center'>

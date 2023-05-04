@@ -1,5 +1,29 @@
 .login-container {
-    font-family: apercu-pro, -apple-system, system-ui, BlinkMacSystemFont, "Helvetica Neue", sans-serif;
+    .loaderIcon {
+        font-size: 14px;
+        margin-bottom: 3px;
+        color: #00d4ff;
+        animation: spin 1s infinite linear;
+
+        @keyframes spin {
+            from {
+                transform: scale(1) rotate(0deg);
+            }
+
+            to {
+                transform: scale(1) rotate(360deg);
+            }
+        }
+
+    }
+
+
+    font-family: apercu-pro,
+    -apple-system,
+    system-ui,
+    BlinkMacSystemFont,
+    "Helvetica Neue",
+    sans-serif;
     display: flex;
     flex-direction: column;
     gap: 15px;
@@ -60,6 +84,12 @@
             border-radius: 5px;
             color: white;
             background: black;
+
+            &:disabled{
+                background: #dddddd ;
+                color: #afafaf  ;
+                cursor: no-drop;
+            }
         }
 
         .forgot-password {

@@ -25,7 +25,6 @@ const ModalUpdateUser = (props) => {
     const [previewImage, setPreviewImage] = useState('')
     const [image, setImage] = useState("")
 
-
     useEffect(() => {
 
         if (!_.isEmpty(dataUpdate)) {
@@ -36,7 +35,6 @@ const ModalUpdateUser = (props) => {
             if (dataUpdate.image) {
                 setPreviewImage(`data:image/jpeg;base64, ${dataUpdate.image}`);
             }
-
         }
     }, [dataUpdate])
 

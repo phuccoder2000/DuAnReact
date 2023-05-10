@@ -3,7 +3,7 @@ import './ManageUser.scss'
 import { FcPlus } from 'react-icons/fc'
 import TableUser from "./TableUser"
 import { useEffect, useState } from "react"
-import { getAllUsers,getUserWithPaginat } from "../../../services/apiService"
+import { getAllUsers, getUserWithPaginat } from "../../../services/apiService"
 import ModalUpdateUser from "./ModalApdateUser"
 import ModalCreateUser from "./ModalCreateUser"
 import ModalViewUser from './ModalViewUser'
@@ -16,11 +16,10 @@ const ManageUser = (props) => {
     const [showModalUpdateUser, setshowModalUpdateUser] = useState(false);
     const [showModalViewUser, setshowModalViewUser] = useState(false)
     const [showModalDeleteUser, setshowModalDeleteUser] = useState(false)
-    const[pageCount,setpageCount] =useState(0)
+    const [pageCount, setpageCount] = useState(0)
     const [dataUpdate, setDataUpdate] = useState({})
     const [listUser, setListUser] = useState([])
-    const [currentpage,setcurrentpage] = useState(1)
-
+    const [currentpage, setcurrentpage] = useState(1)
     const [dataDelete, setDataDelete] = useState({})
 
     useEffect(() => {
@@ -28,6 +27,7 @@ const ManageUser = (props) => {
         fetchListWitPagehUsers(1)
     }, [])
 
+    
     const fetchListUsers = async () => {
 
         let res = await getAllUsers()
@@ -37,25 +37,20 @@ const ManageUser = (props) => {
     }
     const fetchListWitPagehUsers = async (page) => {
 
-        let res = await getUserWithPaginat(page,LIMIT_USER)
+        let res = await getUserWithPaginat(page, LIMIT_USER)
         if (res.EC === 0) {
- 
+
             setListUser(res.DT.users);
             setpageCount(res.DT.totalPages)
-
         }
     }
     const handleClickBtnUpdate = (user) => {
         setshowModalUpdateUser(true);
         setDataUpdate(user)
-
-
     }
     const handleClickBtnView = (user) => {
         setshowModalViewUser(true);
         setDataUpdate(user)
-
-
     }
     const handleClickBtnDelete = (user) => {
         setshowModalDeleteUser(true);
@@ -66,7 +61,7 @@ const ManageUser = (props) => {
         setDataUpdate({})
     }
     // const pageCount =() =>{
-        
+
     // }
     return (
         <div className="manage-user-container">
@@ -86,27 +81,25 @@ const ManageUser = (props) => {
                         handleClickBtnUpdate={handleClickBtnUpdate}
                         handleClickBtnView={handleClickBtnView}
                         handleClickBtnDelete={handleClickBtnDelete}
-
                     /> */}
                     <TableUserPageinate listUser={listUser}
                         handleClickBtnUpdate={handleClickBtnUpdate}
                         handleClickBtnView={handleClickBtnView}
-                        handleClickBtnDelete={handleClickBtnDelete} 
+                        handleClickBtnDelete={handleClickBtnDelete}
                         fetchListWitPagehUsers={fetchListWitPagehUsers}
                         pageCount={pageCount}
                         currentpage={currentpage}
-                        setcurrentpage={setcurrentpage}/>
-                        
-                      
-
+                        setcurrentpage={setcurrentpage} />
                 </div>
+
                 <ModalCreateUser show={showModalCreateUser}
                     setShow={setshowModalCreateUser}
                     fetchListUsers={fetchListUsers}
-                    fetchListWitPagehUsers ={fetchListWitPagehUsers}
+                    fetchListWitPagehUsers={fetchListWitPagehUsers}
                     currentpage={currentpage}
                     setcurrentpage={setcurrentpage}
                 />
+
                 <ModalUpdateUser show={showModalUpdateUser}
                     setShow={setshowModalUpdateUser}
                     dataUpdate={dataUpdate}
@@ -116,12 +109,14 @@ const ManageUser = (props) => {
                     currentpage={currentpage}
                     setcurrentpage={setcurrentpage}
                 />
+
                 <ModalViewUser show={showModalViewUser}
                     setShow={setshowModalViewUser}
                     dataUpdate={dataUpdate}
                     resetUpdateData={resetUpdateData}
 
                 />
+
                 <ModalDeleteUser
                     show={showModalDeleteUser}
                     setShow={setshowModalDeleteUser}
@@ -131,7 +126,6 @@ const ManageUser = (props) => {
                     currentpage={currentpage}
                     setcurrentpage={setcurrentpage}
                 />
-
             </div>
         </div>
     )

@@ -8,7 +8,6 @@ import _, { } from 'lodash';
 const ModalViewUser = (props) => {
     const { show, setShow, dataUpdate, resetUpdateData } = props
     const handleClose = () => {
-        
         setID('')
         setShow(false);
         setEmail('');
@@ -18,13 +17,13 @@ const ModalViewUser = (props) => {
         setPreviewImage('');
         resetUpdateData();
     }
+
     const [id, setID] = useState("")
     const [email, setEmail] = useState("")
     const [username, setUsername] = useState("")
     const [role, setRole] = useState("USER")
     const [previewImage, setPreviewImage] = useState('')
     const [image, setImage] = useState("")
-
 
     useEffect(() => {
         if (!_.isEmpty(dataUpdate)) {
@@ -51,7 +50,7 @@ const ModalViewUser = (props) => {
                 className='modal-add-user'
             >
                 <Modal.Header closeButton>
-                    <Modal.Title> <FaUserTie /> <span />View A Users</Modal.Title>
+                    <Modal.Title> <FaUserTie color='blue' /> <span />View A Users</Modal.Title>
                 </Modal.Header>
                 <Modal.Body>
                     <div className="table-responsive">

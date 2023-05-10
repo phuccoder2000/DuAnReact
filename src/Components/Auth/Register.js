@@ -32,7 +32,6 @@ const Register = (props) => {
         }
         if (!password) {
             toast.error('Invalid Password')
-
             return;
         }
         //summitAPI
@@ -40,14 +39,12 @@ const Register = (props) => {
         if (data && data.EC === 0) {
             toast.success(data.EM)
             navigate('/login')
-
         }
         if (data && data.EC !== 0) {
 
             toast.error(data.EM)
         }
     }
-
     return (
         <div className='group-register'>
             <div className='content-register'>
@@ -55,7 +52,7 @@ const Register = (props) => {
                     and come on in
                 </h1>
                 <img src={BGregister}></img>
-                <div className='title-h3'>&copy; Phuccoder2000</div>
+                <div className='title-h3'>&copy;Typeform</div>
             </div>
             <div className="register-container">
                 <div className="header">
@@ -65,8 +62,8 @@ const Register = (props) => {
                 <div className="title mx-auto col-4" >
                     Phuccoder2000
                 </div>
-                <div className="welcome mx-auto col-4">
-                    Get better data with conversational forms, surveys, quizzes & more.
+                <div className="welcome mx-auto ">
+                    Get better data with conversational forms, surveys,<br /> quizzes & more.
                 </div>
                 <div className="content-form mx-auto col-4">
                     <div className='form-group '>
@@ -117,12 +114,9 @@ const Register = (props) => {
                     <div className=' text-center'>
                         <span className='back' onClick={() => { navigate('/') }}> &#60;&#60; Go to back HomePage</span>
                     </div>
-
                 </div>
             </div>
-
         </div>
-
     )
 }
 export default Register

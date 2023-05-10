@@ -7,7 +7,6 @@ import { useDispatch } from 'react-redux';
 import { doLogin } from '../../redux/action/UserAction';
 import { ImSpinner3 } from 'react-icons/im'
 
-
 const Login = () => {
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
@@ -47,7 +46,6 @@ const Login = () => {
             toast.success(data.EM)
             setIsLoading(false)
             navigate('/')
-
         }
         if (data && data.EC !== 0) {
 
@@ -56,7 +54,6 @@ const Login = () => {
         }
 
     }
-
     return (
         <div className="login-container">
             <div className="header">

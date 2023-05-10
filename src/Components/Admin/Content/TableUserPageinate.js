@@ -9,10 +9,8 @@ const TableUserPageinate = (props) => {
         props.setcurrentpage(+event.selected +1)
         props.fetchListWitPagehUsers(+event.selected +1)
         console.log(`User requested page number ${event.selected}`);
-
     };  
-
-
+    
     return (
         <>
             <table className="table table-hover table-bordered" >

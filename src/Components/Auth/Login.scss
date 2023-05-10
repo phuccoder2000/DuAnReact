@@ -1,4 +1,9 @@
 .login-container {
+    font-family: apercu-pro, -apple-system, system-ui, BlinkMacSystemFont, "Helvetica Neue", sans-serif;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+
     .loaderIcon {
         font-size: 14px;
         margin-bottom: 3px;
@@ -14,20 +19,7 @@
                 transform: scale(1) rotate(360deg);
             }
         }
-
     }
-
-
-    font-family: apercu-pro,
-    -apple-system,
-    system-ui,
-    BlinkMacSystemFont,
-    "Helvetica Neue",
-    sans-serif;
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
-
     .header {
         height: 45px;
         text-align: right;
@@ -85,9 +77,9 @@
             color: white;
             background: black;
 
-            &:disabled{
-                background: #dddddd ;
-                color: #afafaf  ;
+            &:disabled {
+                background: #dddddd;
+                color: #afafaf;
                 cursor: no-drop;
             }
         }

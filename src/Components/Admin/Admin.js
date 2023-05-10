@@ -20,10 +20,8 @@ const Admin = (props) => {
                     <Outlet />
                 </div>
             </div>
-            
             {/* Same as */}
             {/* <ToastContainer /> */}
-
         </div>
     )
 }

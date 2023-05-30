@@ -4,7 +4,7 @@ import {
     Routes,
 } from "react-router-dom";
 import App from './App';
-import User from './Components/User/User';
+// import User from './Components/User/User';
 import Admin from './Components/Admin/Admin';
 import HomePage from './Components/Home/HomePage';
 import ManageUser from './Components/Admin/Content/ManageUser';
@@ -26,7 +26,7 @@ const Layout = (props) => {
             <Routes>
                 <Route path='/' element={<App />}>
                     <Route index element={<HomePage />} />
-                    <Route path='/users' element={<ListQuiz />} />
+                    <Route path='/users' element={<ListQuiz></ListQuiz>} />
                 </Route>
                 <Route path='/quiz/:id' element={<DetailQuiz />} />
                 <Route path='admins' element={<Admin />}>

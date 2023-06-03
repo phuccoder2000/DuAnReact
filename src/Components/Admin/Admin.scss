@@ -3,6 +3,7 @@
 
   .admin-sidebar {
     height: 100vh !important;
+
     .pro-sidebar {}
   }
 
@@ -13,7 +14,11 @@
       height: 40px;
       border: 1px solid green;
     }
-    .admin-main {}
+
+    .admin-main {
+      margin-bottom: 10px;
+      height: calc(100vh - 40px);
+    }
   }
 }
 

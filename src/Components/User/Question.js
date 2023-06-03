@@ -15,7 +15,7 @@ const Question = (props) => {
         <>
             {data.image ?
                 <div className='q-image'>
-                    <img src={`data:image/png;base64, ${data.image}`}></img>
+                    <img alt='' src={`data:image/png;base64, ${data.image}`}></img>
                 </div>
                 :
                 <div className='q-image'>

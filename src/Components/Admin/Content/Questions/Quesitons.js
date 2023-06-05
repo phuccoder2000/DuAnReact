@@ -8,6 +8,7 @@ import { AiFillPlusSquare } from "react-icons/ai";
 import { RiImageAddLine } from "react-icons/ri";
 import { v4 as uuidv4 } from 'uuid';
 import _ from 'lodash'
+import Lightbox from "react-awesome-lightbox";
 
 
 
@@ -23,13 +24,13 @@ const Questions = () => {
         [
             {
                 id: uuidv4(),
-                description: 'questions 1',
+                description: '',
                 imageFile: '',
                 imageName: '',
                 answers: [
                     {
                         id: uuidv4(),
-                        description: 'answer 1',
+                        description: '',
                         isCorrect: false,
                     }
 
@@ -37,6 +38,11 @@ const Questions = () => {
             }
         ]
     )
+    const [isPreviewImage, setisPreviewImage] = useState(false)
+    const [dataImagePreview, setdataImagePreview] = useState({
+        title: '',
+        url: ''
+    })
 
     const handleAddRemoveQuestion = (type, id) => {
         if (type === 'ADD') {
@@ -86,7 +92,66 @@ const Questions = () => {
         }
         // console.log("check:", type, questionId, answerId)
     }
-    // console.log("Question", questions)
+
+    const handleOnchane = (type, questionId, value) => {
+        if (type === 'QUESTION') {
+            let questionClone = _.cloneDeep(questions);
+
+            let index = questionClone.findIndex(item => item.id === questionId)
+            if (index > -1) {
+                questionClone[index].description = value
+                setQuestions(questionClone)
+            }
+
+        }
+    }
+    const handleOnchanFileQuestion = (questionId, event) => {
+        let questionClone = _.cloneDeep(questions);
+        let index = questionClone.findIndex(item => item.id === questionId)
+        if (index > -1 && event.target && event.target.files && event.target.files[0]) {
+            questionClone[index].imageFile = event.target.files[0];
+            questionClone[index].imageName = event.target.files[0].name
+            setQuestions(questionClone)
+        }
+
+    }
+    const handelAnswerQuestion = (type, answerId, questionId, value) => {
+        let questionClone = _.cloneDeep(questions);
+        let index = questionClone.findIndex(item => item.id === questionId)
+        // console.log(type, questionId, answerId, value, index)
+        if (index > -1) {
+            questionClone[index].answers =
+                questionClone[index].answers.map(answer => {
+                    if (answer.id === answerId) {
+                        if (type === 'CHECKBOX') {
+                            answer.isCorrect = value
+                        }
+                        if (type === 'INPUT') {
+                            answer.description = value
+                        }
+                    }
+                    return answer;
+                })
+
+            setQuestions(questionClone)
+        }
+
+    }
+    const handelSubmitQuestionForQuiz = () => {
+        console.log("Question", questions)
+    }
+    const handlePreviewImage = (questionId) => {
+        let questionClone = _.cloneDeep(questions);
+        let index = questionClone.findIndex(item => item.id === questionId)
+        if (index > -1) {
+            setdataImagePreview({
+                url: URL.createObjectURL(questionClone[index].imageFile),
+                title: questionClone[index].imageName,
+            })
+            setisPreviewImage(true)
+        }
+
+    }
     return (
         <div className="question-container">
             <div className="title">
@@ -117,13 +182,30 @@ const Questions = () => {
                                             className="form-control"
                                             placeholder="name@example.com"
                                             value={question.description}
+                                            onChange={(event) => handleOnchane('QUESTION', question.id, event.target.value)}
                                         />
                                         <label >Question {index + 1}'s description</label>
                                     </div>
                                     <div className='group-upload'>
-                                        <label className='lable-upload'><RiImageAddLine /></label>
-                                        <input type='file' hidden></input>
-                                        <span>0 file is upload</span>
+                                        <label htmlFor={`${question.id}`}>
+                                            <RiImageAddLine className='lable-upload' />
+                                        </label>
+                                        <input
+                                            id={`${question.id}`}
+                                            onChange={(event) => handleOnchanFileQuestion(question.id, event)}
+                                            type='file'
+                                            hidden>
+                                        </input>
+                                        <span>
+
+                                            {question.imageName ?
+                                                <span style={{cursor :"pointer"}}
+                                                    onClick={() => handlePreviewImage(question.id)}
+                                                >{question.imageName}
+                                                </span>
+                                                :
+                                                '0 file is upload'}
+                                        </span>
                                     </div>
                                     <div className='btn-add'>
                                         <span onClick={() => handleAddRemoveQuestion('ADD', '')}>
@@ -143,12 +225,15 @@ const Questions = () => {
                                             <div key={answer.id} className='answers-content'>
                                                 <input className="form-check-input iscorrect"
                                                     type="checkbox"
+                                                    checked={answer.isCorrect}
+                                                    onChange={(event) => handelAnswerQuestion('CHECKBOX', answer.id, question.id, event.target.checked)}
                                                 />
                                                 <div className="form-floating answer-name ">
                                                     <input type="text"
                                                         className="form-control"
                                                         placeholder="name@example.com"
                                                         value={answer.description}
+                                                        onChange={(event) => handelAnswerQuestion('INPUT', answer.id, question.id, event.target.value)}
                                                     />
                                                     <label >Answers {index + 1} </label>
                                                 </div>
@@ -169,12 +254,30 @@ const Questions = () => {
                                     })
                                 }
 
+
                             </div>
                         )
                     })
                 }
-
+                {
+                    questions && questions.length > 0 &&
+                    <div>
+                        <button
+                            onClick={() => handelSubmitQuestionForQuiz()}
+                            className='btn btn-warning'>Save Question</button>
+                    </div>
+                }
+                {isPreviewImage === true &&
+                    <Lightbox
+                        image={dataImagePreview.url}
+                        title={dataImagePreview.title}
+                        onClose={() => setisPreviewImage(false)}
+                    >
+                    </Lightbox>
+                }
             </div>
+
+
         </div>
     )
 }

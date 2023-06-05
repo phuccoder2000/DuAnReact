@@ -12,6 +12,7 @@ import {
 } from "react-router-dom";
 import Layout from './Layout';
 import { PersistGate } from 'redux-persist/integration/react'
+import "react-awesome-lightbox/build/style.css";
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(

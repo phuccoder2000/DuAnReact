@@ -8,14 +8,15 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
-@media (min-width: 1500px) {
+@media (min-width: 1350px) {
+
   .container,
   .container-lg,
   .container-md,
   .container-sm,
   .container-xl,
   .container-xxl {
-    max-width: 1450px !important;
+    max-width: 1300px !important;
   }
 }
 
@@ -40,6 +41,7 @@ body {
         background: black;
       }
     }
+
     .navbar {
 
       z-index: 10;
@@ -51,7 +53,7 @@ body {
         font-weight: 600;
         font-size: 25px;
       }
-      
+
       .nav-link {
         &.active {
           color: #00bfff;
@@ -92,6 +94,16 @@ body {
       }
     }
   }
+
+  .main-container {
+    position: relative;
+    height: calc(100vh - 100px);
+
+  }
+
+
+
+
 }
 
 video {

@@ -64,21 +64,47 @@ const postCreateNewQuiz = (description, name, difficulty, quizImage) => {
 }
 const getAllQuizForAdmin = (id) => {
     return axios.get(`/api/v1/quiz/all`);
-} 
+}
 const deleteQuizForAdmin = (id) => {
     return axios.delete(`/api/v1/quiz/${id}`)
 }
-const putApdateQuiz = (id, name, difficulty,description,image)  => {
+const putApdateQuiz = (id, name, difficulty, description, image) => {
     const data = new FormData();
     data.append("id", id);
     data.append("description", description);
     data.append("name", name);
     data.append("difficulty", difficulty);
     data.append("quizImage", image);
-    return axios.put('/api/v1/quiz',data)
+    return axios.put('/api/v1/quiz', data)
+}
+const postCreateNewQuestionForQuiz = (quiz_id, description, image) => {
+    const data = new FormData();
+    data.append("quiz_id", quiz_id);
+    data.append("description", description);
+    data.append("questionImage", image);
+    return axios.post('/api/v1/question', data)
+}
+const postCreateNewAnswerForQuestion = (description, correct_answer, question_id) => {
+
+    return axios.post('/api/v1/answer', {
+        description, correct_answer, question_id
+    })
+}
+const postAssignQuiz = (quizId, userId) => {
+    return axios.post(`/api/v1/quiz-assign-to-user`,
+        { quizId, userId }
+    );
+}
+const getQuizWithQA = (quizId) => {
+    return axios.get(`/api/v1/quiz-with-qa/${quizId}`,
+    );
+}
+const postUpsertQA = (data) => {
+    return axios.post(`/api/v1/quiz-upsert-qa`, { ...data });
 }
 export {
     postCreateNewUser, getAllUsers, putApdateUser,
     deleteUser, getUserWithPaginat, postLogin, postRegister,
-    getQuizBuyUSer, getDataQuiz, postSubmitQuiz, postCreateNewQuiz,getAllQuizForAdmin,deleteQuizForAdmin,putApdateQuiz
+    getQuizBuyUSer, getDataQuiz, postSubmitQuiz, postCreateNewQuiz, getAllQuizForAdmin, deleteQuizForAdmin, putApdateQuiz,
+    postCreateNewQuestionForQuiz, postCreateNewAnswerForQuestion, postAssignQuiz, getQuizWithQA,postUpsertQA
 }

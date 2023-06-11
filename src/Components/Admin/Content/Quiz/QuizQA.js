@@ -253,7 +253,7 @@ const QuizQA = () => {
         }
         // console.log('check res:', res)
         // toast.success('Create Question answer success')
-        // setQuestions(initQuestion)
+    
     }
     const toBase64 = file => new Promise((resolve, reject) => {
         const reader = new FileReader();

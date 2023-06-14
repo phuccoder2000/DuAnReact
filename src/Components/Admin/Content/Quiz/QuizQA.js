@@ -185,7 +185,7 @@ const QuizQA = () => {
                     }
                     return answer;
                 })
-
+                
             setQuestions(questionClone)
         }
 
@@ -218,7 +218,7 @@ const QuizQA = () => {
             return;
         }
         // validate Question
-
+        
         let isValidQ = true
         let indexQ1 = 0;
         for (let i = 0; i < questions.length; i++) {
@@ -271,9 +271,7 @@ const QuizQA = () => {
             })
             setisPreviewImage(true)
         }
-
     }
-    console.log('check question:', questions)
     return (
         <div className="question-container">
             <div className="add-new-questions">
@@ -400,3 +398,5 @@ const QuizQA = () => {
     )
 }
 export default QuizQA
+
+

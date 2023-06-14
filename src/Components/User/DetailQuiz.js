@@ -5,6 +5,7 @@ import _ from 'lodash'
 import './DetailQuiz.scss'
 import Question from "./Question";
 import ModalResult from "./ModalResult";
+import RightContent from "./Content/RightContent";
 
 
 
@@ -99,7 +100,7 @@ const DetailQuiz = (props) => {
         //     ]
         // }
 
-        console.log("check data before submit", dataQuiz)
+        // console.log("check data before submit", dataQuiz)
         let payload = {
             quizId: +quizId,
             answers: []
@@ -128,7 +129,7 @@ const DetailQuiz = (props) => {
 
             //submit api
             let res = await postSubmitQuiz(payload)
-            console.log('check res', res)
+            // console.log('check res', res)
             if (res && res.EC === 0) {
                 setDataModalResult({
                     countCorrect: res.DT.countCorrect,
@@ -171,7 +172,11 @@ const DetailQuiz = (props) => {
                 </div>
             </div>
             <div className="right-content">
-                count down
+                <RightContent
+                    dataQuiz={dataQuiz}
+                    handleFinishQuiz={handleFinishQuiz}
+                    setIndex = {setIndex}
+                    />
             </div>
             <ModalResult
                 show={isShowModalResult}

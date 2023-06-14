@@ -16,9 +16,11 @@ import ListQuiz from "./Components/User/ListQuiz";
 import DetailQuiz from "./Components/User/DetailQuiz";
 import ManageQuiz from "./Components/Admin/Content/Quiz/ManageQuiz";
 import Questions from "./Components/Admin/Content/Questions/Quesitons";
+import PrivateRoute from "./routes/PrivateRoute";
 
-const NotFound = () =>{
-    return(
+
+const NotFound = () => {
+    return (
         <div className=" container mt-3 alert alert-danger">404. Not found data with you current URL</div>
     )
 }
@@ -28,10 +30,19 @@ const Layout = (props) => {
             <Routes>
                 <Route path='/' element={<App />}>
                     <Route index element={<HomePage />} />
-                    <Route path='/users' element={<ListQuiz></ListQuiz>} />
+                    <Route path='/users' element={
+                        <PrivateRoute>
+                            <ListQuiz />
+                        </PrivateRoute>
+                    } />
                 </Route>
                 <Route path='/quiz/:id' element={<DetailQuiz />} />
-                <Route path='admins' element={<Admin />}>
+
+                <Route path='admins' element={
+                    <PrivateRoute>
+                        <Admin />
+                    </PrivateRoute>
+                }>
                     <Route index element={<DashBoard />} />
                     <Route path='manage-Users' element={<ManageUser />} />
                     <Route path='manage-quizzes' element={<ManageQuiz />} />
@@ -41,7 +52,7 @@ const Layout = (props) => {
                 <Route path='/login' element={<Login />} />
                 <Route path='/register' element={<Register />} />
                 <Route path='*' element={<NotFound />} />
-              
+
             </Routes>
             <ToastContainer
                 position="top-right"

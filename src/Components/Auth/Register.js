@@ -5,6 +5,7 @@ import { useState } from 'react'
 import { toast } from 'react-toastify';
 import { postRegister } from "../../services/apiService"
 import BGregister from '../../assets/BGregister.webp'
+import Language from '../Headers/Language';
 const Register = (props) => {
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
@@ -58,6 +59,7 @@ const Register = (props) => {
                 <div className="header">
                     <span>Alerady have an account?</span>
                     <button onClick={() => handleLogin()}>Login</button>
+                    <Language />
                 </div>
                 <div className="title mx-auto col-4" >
                     Phuccoder2000

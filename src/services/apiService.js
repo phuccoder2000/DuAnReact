@@ -107,9 +107,12 @@ const logout = (email, refresh_token) => {
         { email, refresh_token }
     );
 }
+const getOverview = () => {
+    return axios.get(`/api/v1/overview`);
+}
 export {
     postCreateNewUser, getAllUsers, putApdateUser,
     deleteUser, getUserWithPaginat, postLogin, postRegister,
     getQuizBuyUSer, getDataQuiz, postSubmitQuiz, postCreateNewQuiz, getAllQuizForAdmin, deleteQuizForAdmin, putApdateQuiz,
-    postCreateNewQuestionForQuiz, postCreateNewAnswerForQuestion, postAssignQuiz, getQuizWithQA, postUpsertQA, logout
+    postCreateNewQuestionForQuiz, postCreateNewAnswerForQuestion, postAssignQuiz, getQuizWithQA, postUpsertQA, logout,getOverview
 }

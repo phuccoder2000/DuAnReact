@@ -13,7 +13,7 @@ import {
 import Layout from './Layout';
 import { PersistGate } from 'redux-persist/integration/react'
 import "react-awesome-lightbox/build/style.css";
-
+import i18n from './utils/i18n';
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <Provider store={store}>

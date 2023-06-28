@@ -8,7 +8,6 @@ import ModalResult from "./ModalResult";
 import RightContent from "./Content/RightContent";
 
 
-
 const DetailQuiz = (props) => {
     const params = useParams();
     const location = useLocation()
@@ -18,11 +17,9 @@ const DetailQuiz = (props) => {
     const [index, setIndex] = useState(0);
     const [isShowModalResult, setShowModalResult] = useState(false)
     const [dataModalResult, setDataModalResult] = useState({})
-
     useEffect(() => {
         fetchQuestion();
     }, [quizId])
-
     const fetchQuestion = async () => {
         let res = await getDataQuiz(quizId);
         // console.log("question", res)
@@ -42,7 +39,6 @@ const DetailQuiz = (props) => {
                         }
                         item.answers.isSelected = false;
                         answers.push(item.answers)
-
                         // console.log('item answers', item.answers)
                     })
                     // console.log('value:', value, "key:", key)
@@ -56,6 +52,7 @@ const DetailQuiz = (props) => {
     }
     // console.log('check param', params)
     // console.log("check dataquiz:", dataQuiz)
+
     const handlePrev = () => {
         if (index - 1 < 0) return
         setIndex(index - 1)
@@ -85,7 +82,6 @@ const DetailQuiz = (props) => {
     const handleFinishQuiz = async () => {
 
         // type Data
-
         // {
         //     "quizId": 1,
         //     "answers": [
@@ -99,7 +95,6 @@ const DetailQuiz = (props) => {
         //         }
         //     ]
         // }
-
         // console.log("check data before submit", dataQuiz)
         let payload = {
             quizId: +quizId,
@@ -108,11 +103,8 @@ const DetailQuiz = (props) => {
         let answers = [];
         if (dataQuiz && dataQuiz.length > 0) {
             dataQuiz.forEach(question => {
-
                 let questionId = question.questionId;
                 let userAnswerId = [];
-
-
                 //todo: userAnswerId
                 question.answers.forEach(a => {
                     if (a.isSelected === true) {
@@ -126,7 +118,6 @@ const DetailQuiz = (props) => {
             })
             payload.answers = answers;
             // console.log('final payload',payload)
-
             //submit api
             let res = await postSubmitQuiz(payload)
             // console.log('check res', res)
@@ -157,7 +148,8 @@ const DetailQuiz = (props) => {
                         handleCheckbox={handleCheckbox}
                         data={dataQuiz && dataQuiz.length > 0
                             ? dataQuiz[index] : []
-                        } />
+                        }
+                    />
                 </div>
                 <div className="footer">
                     <button className="btn btn-secondary"

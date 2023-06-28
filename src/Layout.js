@@ -19,8 +19,6 @@ import Questions from "./Components/Admin/Content/Questions/Quesitons";
 import PrivateRoute from "./routes/PrivateRoute";
 import { Suspense } from 'react';
 
-
-
 const NotFound = () => {
     return (
         <div className=" container mt-3 alert alert-danger">404. Not found data with you current URL</div>
@@ -70,9 +68,7 @@ const Layout = (props) => {
                 pauseOnHover
                 theme="light"
             />
-
         </Suspense>
     )
-
 }
 export default Layout

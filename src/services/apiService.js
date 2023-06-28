@@ -10,11 +10,9 @@ const postCreateNewUser = (email, password, username, role, image) => {
     data.append("userImage", image);
     return axios.post('api/v1/participant', data)
 }
-
 const getAllUsers = () => {
     return axios.get('api/v1/participant/all')
 }
-
 const putApdateUser = (id, username, role, image) => {
     const data = new FormData();
     data.append("id", id);
@@ -45,9 +43,7 @@ const postRegister = (userEmail, userPassword, userName) => {
 const getQuizBuyUSer = () => {
     return axios.get('/api/v1/quiz-by-participant');
 }
-
 const getDataQuiz = (id) => {
-
     return axios.get(`/api/v1/questions-by-quiz?quizId=${id}`);
 }
 const postSubmitQuiz = (data) => {
@@ -110,9 +106,15 @@ const logout = (email, refresh_token) => {
 const getOverview = () => {
     return axios.get(`/api/v1/overview`);
 }
+const postUpdateProfile = (username, image) => {
+    const data = new FormData();
+    data.append("username", username);
+    data.append("Image", image);
+    return axios.post('/api/v1/profile', data)
+}
 export {
     postCreateNewUser, getAllUsers, putApdateUser,
     deleteUser, getUserWithPaginat, postLogin, postRegister,
     getQuizBuyUSer, getDataQuiz, postSubmitQuiz, postCreateNewQuiz, getAllQuizForAdmin, deleteQuizForAdmin, putApdateQuiz,
-    postCreateNewQuestionForQuiz, postCreateNewAnswerForQuestion, postAssignQuiz, getQuizWithQA, postUpsertQA, logout,getOverview
+    postCreateNewQuestionForQuiz, postCreateNewAnswerForQuestion, postAssignQuiz, getQuizWithQA, postUpsertQA, logout,getOverview,postUpdateProfile
 }

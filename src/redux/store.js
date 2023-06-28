@@ -10,8 +10,8 @@ const persistConfig = {
     key: 'root',
     storage,
 }
-
 const persistedReducer = persistReducer(persistConfig, rootReducer)
 const store = createStore(persistedReducer, composeWithDevTools(applyMiddleware(thunk)))
 let persistor = persistStore(store)
-export { store, persistor }
+export { store, persistor}
+

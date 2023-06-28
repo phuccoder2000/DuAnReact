@@ -9,9 +9,11 @@ import PerfectScrollbar from 'react-perfect-scrollbar'
 import 'react-toastify/dist/ReactToastify.css';
 import Language from '../Headers/Language';
 import { NavDropdown } from 'react-bootstrap';
+import ProfileAdmin from './Content/Profile/ProfileAdmin';
 
 const Admin = (props) => {
-    const [collapsed, setcollapsed] = useState(false)
+    const [collapsed, setcollapsed] = useState(false);
+    const [isShowModalProfileAdmin, setIsShowModalProfileAdmin] = useState(false)
     return (
         <div className="admin-container">
             <div className="admin-sidebar">
@@ -25,8 +27,8 @@ const Admin = (props) => {
                     <div className='rightside'>
                         <Language />
                         <NavDropdown title="Settings" id="basic-nav-dropdown">
-                            <NavDropdown.Item >Profile</NavDropdown.Item>
-                            <NavDropdown.Item>Log out</NavDropdown.Item>
+                            <NavDropdown.Item onClick={() => setIsShowModalProfileAdmin(true)}>Profile</NavDropdown.Item>
+                            <NavDropdown.Item >Log out</NavDropdown.Item>
                         </NavDropdown>
                     </div>
                 </div>
@@ -34,6 +36,10 @@ const Admin = (props) => {
                     <PerfectScrollbar>
                         <Outlet />
                     </PerfectScrollbar>
+                    <ProfileAdmin
+                    show={isShowModalProfileAdmin}
+                    setShow={setIsShowModalProfileAdmin}
+                />
                 </div>
 
 

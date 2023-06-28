@@ -6,7 +6,9 @@ import { toast } from 'react-toastify';
 import { postRegister } from "../../services/apiService"
 import BGregister from '../../assets/BGregister.webp'
 import Language from '../Headers/Language';
+import { useTranslation, Trans } from 'react-i18next';
 const Register = (props) => {
+
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
     const [username, setUsername] = useState('')
@@ -46,26 +48,35 @@ const Register = (props) => {
             toast.error(data.EM)
         }
     }
+    // chuyển ngôn ngữ
+    const { t } = useTranslation();
+    const MultilineTranslation = ({ text }) => {
+        const items = text.split('\n')
+        return (
+            <>
+                {items.map(item => <p>{item}</p>)}
+            </>
+        )
+    }
     return (
         <div className='group-register'>
             <div className='content-register'>
-                <h1 className='title-h1'>Sign up <br />
-                    and come on in
+                <h1 className='title-h1'> {t('register.title2')}
                 </h1>
                 <img src={BGregister}></img>
                 <div className='title-h3'>&copy;Typeform</div>
             </div>
             <div className="register-container">
                 <div className="header">
-                    <span>Alerady have an account?</span>
-                    <button onClick={() => handleLogin()}>Login</button>
+                    <span>{t('register.title1')}</span>
+                    <button onClick={() => handleLogin()}>{t('register.login')}</button>
                     <Language />
                 </div>
                 <div className="title mx-auto col-4" >
                     Phuccoder2000
                 </div>
                 <div className="welcome mx-auto ">
-                    Get better data with conversational forms, surveys,<br /> quizzes & more.
+                {t('register.title3')}
                 </div>
                 <div className="content-form mx-auto col-4">
                     <div className='form-group '>
@@ -78,7 +89,7 @@ const Register = (props) => {
                         />
                     </div>
                     <div className='form-group pass-group'>
-                        <label>password</label>
+                        <label> {t('register.password')}</label>
                         <input
                             type={isshowPassword ? "text" : "password"}
                             className='form-control'
@@ -99,7 +110,7 @@ const Register = (props) => {
                         }
                     </div>
                     <div className='form-group '>
-                        <label>Username</label>
+                        <label>{t('register.username')}</label>
                         <input
                             type={"username"}
                             className='form-control'
@@ -107,14 +118,14 @@ const Register = (props) => {
                             onChange={(event) => setUsername(event.target.value)}
                         />
                     </div>
-                    <span className='forgot-password'>Forgot password ?</span>
+                    <span className='forgot-password'>{t('register.forgotpassword')}</span>
                     <div>
                         <button className='btn-summit' onClick={() => handleRegister()}>
-                            Create my free account
+                        {t('register.button1')}
                         </button>
                     </div>
                     <div className=' text-center'>
-                        <span className='back' onClick={() => { navigate('/') }}> &#60;&#60; Go to back HomePage</span>
+                        <span className='back' onClick={() => { navigate('/') }}> &#60;&#60; {t('register.title4')} </span>
                     </div>
                 </div>
             </div>

@@ -38,11 +38,10 @@ const DashBoard = (props) => {
             ]
             setDataChart(data)
         }
-        console.log(res)
+        // console.log(res)
     }
 
 
-    console.log(dataOverView)
     return (
         <div className="doashboar-container">
             <div className="title">
@@ -83,9 +82,9 @@ const DashBoard = (props) => {
                 <div className="content-right">
                     <ResponsiveContainer width="95%" height="100%">
                         <BarChart data={dataChart}>
-                            {/* <CartesianGrid strokeDasharray="3 3" /> */}
+                            <CartesianGrid strokeDasharray="3 3" />
                             <XAxis dataKey="name" />
-                            {/* <YAxis /> */}
+                            <YAxis />
                             <Tooltip />
                             <Legend />
                             <Bar dataKey="Qz" fill="#8884d8" />

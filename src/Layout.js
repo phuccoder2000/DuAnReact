@@ -17,18 +17,20 @@ import DetailQuiz from "./Components/User/DetailQuiz";
 import ManageQuiz from "./Components/Admin/Content/Quiz/ManageQuiz";
 import Questions from "./Components/Admin/Content/Questions/Quesitons";
 import PrivateRoute from "./routes/PrivateRoute";
+<<<<<<< HEAD
 import { Suspense } from 'react';
+=======
+
+>>>>>>> parent of b035ad4 (design and api dashboard)
 
 const NotFound = () => {
     return (
         <div className=" container mt-3 alert alert-danger">404. Not found data with you current URL</div>
     )
 }
-
 const Layout = (props) => {
     return (
-        <Suspense fallback={<div>loading...</div>}>
-
+        <>
             <Routes>
                 <Route path='/' element={<App />}>
                     <Route index element={<HomePage />} />
@@ -68,7 +70,11 @@ const Layout = (props) => {
                 pauseOnHover
                 theme="light"
             />
+<<<<<<< HEAD
         </Suspense>
+=======
+        </>
+>>>>>>> parent of b035ad4 (design and api dashboard)
     )
 }
 export default Layout

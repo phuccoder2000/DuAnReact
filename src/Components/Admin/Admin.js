@@ -7,9 +7,12 @@ import PerfectScrollbar from 'react-perfect-scrollbar'
 
 
 import 'react-toastify/dist/ReactToastify.css';
+<<<<<<< HEAD
 import Language from '../Headers/Language';
 import { NavDropdown } from 'react-bootstrap';
 import ProfileAdmin from './Content/Profile/ProfileAdmin';
+=======
+>>>>>>> parent of b035ad4 (design and api dashboard)
 
 const Admin = (props) => {
     const [collapsed, setcollapsed] = useState(false);
@@ -20,6 +23,7 @@ const Admin = (props) => {
                 <SideBar collapsed={collapsed} />
             </div>
             <div className="admin-content">
+<<<<<<< HEAD
                 <div className='admin-header'>
                     <span onClick={() => setcollapsed(!collapsed)} >
                         <FaBars className='leftside' />
@@ -32,6 +36,12 @@ const Admin = (props) => {
                         </NavDropdown>
                     </div>
                 </div>
+=======
+                <div className='admin-header'></div>
+                <FaBars onClick={() => setcollapsed(!collapsed)} />
+
+
+>>>>>>> parent of b035ad4 (design and api dashboard)
                 <div className='admin-main'>
                     <PerfectScrollbar>
                         <Outlet />

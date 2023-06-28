@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import "./DashBoard.scss"
 import { ResponsiveContainer, BarChart, CartesianGrid, XAxis, YAxis, Tooltip, Legend, Bar } from 'recharts';
 import { getOverview } from "../../../services/apiService";
@@ -96,6 +97,11 @@ const DashBoard = (props) => {
             </div>
 
         </div>
+=======
+const DashBoard = (props) =>{
+    return(
+        <div>hello DoashBoar</div>
+>>>>>>> parent of b035ad4 (design and api dashboard)
     )
 }
 export default DashBoard

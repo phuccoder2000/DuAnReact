@@ -25,7 +25,11 @@ const Profile = (props) => {
                         className="mb-3"
                     >
                         <Tab eventKey="home" title="UserInformation">
+<<<<<<< HEAD
                       
+=======
+                            
+>>>>>>> master
                         </Tab>
                         <Tab eventKey="profile" title="Change Password">
                             Password

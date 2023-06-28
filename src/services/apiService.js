@@ -103,6 +103,7 @@ const logout = (email, refresh_token) => {
         { email, refresh_token }
     );
 }
+<<<<<<< HEAD
 const getOverview = () => {
     return axios.get(`/api/v1/overview`);
 }
@@ -112,9 +113,15 @@ const postUpdateProfile = (username, image) => {
     data.append("Image", image);
     return axios.post('/api/v1/profile', data)
 }
+=======
+>>>>>>> parent of b035ad4 (design and api dashboard)
 export {
     postCreateNewUser, getAllUsers, putApdateUser,
     deleteUser, getUserWithPaginat, postLogin, postRegister,
     getQuizBuyUSer, getDataQuiz, postSubmitQuiz, postCreateNewQuiz, getAllQuizForAdmin, deleteQuizForAdmin, putApdateQuiz,
+<<<<<<< HEAD
     postCreateNewQuestionForQuiz, postCreateNewAnswerForQuestion, postAssignQuiz, getQuizWithQA, postUpsertQA, logout,getOverview,postUpdateProfile
+=======
+    postCreateNewQuestionForQuiz, postCreateNewAnswerForQuestion, postAssignQuiz, getQuizWithQA, postUpsertQA, logout
+>>>>>>> parent of b035ad4 (design and api dashboard)
 }
